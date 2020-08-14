@@ -1,9 +1,16 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import Header from '../../components/Header';
+import Editor from '../../components/Editor';
+import { Container } from './styles';
 
 const Main: React.FC = () => {
-  return <div />;
+  return (
+    <Container>
+      <Header />
+      <Editor />
+    </Container>
+  );
 };
 
 export default Main;
