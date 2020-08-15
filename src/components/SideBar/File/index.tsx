@@ -34,7 +34,6 @@ const FileLeaf: React.FC<FileLeafData> = ({ item, level }) => {
 
   const setCurrentFile = useCallback(
     (id: number) => {
-      console.log(`disp. ${id}`);
       dispach(setFile(id));
     },
     [dispach],
