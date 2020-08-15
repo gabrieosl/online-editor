@@ -1,20 +1,20 @@
 export const lightTheme = {
-  background: 'white',
+  background: '#ececec',
   subBackground: '#cccccc',
-  text: 'black',
+  text: '#1b1b2f',
   default: 'gray',
   primary: 'blue',
   secondary: 'brown',
-  error: 'red',
+  error: '#c02739',
   success: 'darkgreen',
 };
 export const darkTheme = {
-  background: 'black',
-  subBackground: '#333333',
-  text: 'white',
+  background: '#322f3d',
+  subBackground: '#4b5d67',
+  text: '#ececec',
   default: 'gray',
-  primary: 'navy',
+  primary: '#87556f',
   secondary: 'brown',
-  error: 'red',
+  error: '#84142d',
   success: 'green',
 };
