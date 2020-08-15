@@ -6,7 +6,7 @@
   Online Text Editor - Frontend
 </h1>
 
-<p align="center">A REST API for GoBarber App. </p>
+<p align="center">Web app for text editing</p>
 
 <p align="center">
   <img src="https://img.shields.io/github/last-commit/gabrieosl/online-editor" />
@@ -52,9 +52,6 @@ Text Editor react app that allows users to:
 - axios
 - i18n-react
 - immer
-- **SQL DB**: Postgres
-- **NoSQL DB**: Mongo
-- **Cache**: Redis
 
 # ⚙️ Run it yourself
 
