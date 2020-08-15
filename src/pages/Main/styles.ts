@@ -10,3 +10,21 @@ export const Container = styled.div`
 
   background: ${props => props.theme.background};
 `;
+
+export const Footer = styled.div`
+  height: 40px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  background: ${props => props.theme.subBackground};
+  color: ${props => props.theme.text};
+
+  a {
+    display: flex;
+    align-items: center;
+    color: ${props => props.theme.text};
+  }
+`;
