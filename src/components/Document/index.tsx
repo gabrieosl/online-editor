@@ -2,8 +2,20 @@ import React from 'react';
 
 import { Container } from './styles';
 
-const Document: React.FC = () => {
-  return <Container>Document</Container>;
+interface DocumentProps {
+  content: string;
+  handleEditContent(newValue: string): void;
+}
+
+const Document: React.FC<DocumentProps> = ({ content, handleEditContent }) => {
+  return (
+    <Container>
+      <textarea
+        value={content}
+        onChange={e => handleEditContent(e.target.value)}
+      />
+    </Container>
+  );
 };
 
 export default Document;

@@ -1,9 +1,15 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import { AiOutlineMenuUnfold, AiOutlineMenuFold } from 'react-icons/all';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+
+import { RootState } from '../../redux';
 
 import FileContainer from './File';
 import Button from '../Button';
+import Loading from '../Loading';
+
+import { refreshFiles } from '../../redux/files/actions';
 
 import { Container } from './styles';
 
@@ -12,26 +18,28 @@ interface FileProps {
   name: string;
   isDirectory: boolean;
   children?: FileProps[];
+  content?: string;
 }
 
 const SideBar: React.FC = () => {
-  const [files, setFiles] = useState<FileProps[]>([]);
+  const { t } = useTranslation('common');
   const [isBarHidden, setIsBarHidden] = useState(false);
 
-  const getFiles = useCallback(async () => {
-    const response = await axios.get<FileProps[]>(
-      `${process.env.REACT_APP_API_URL}/filetree` as string,
-    );
-    if (response.status === 200) setFiles(response.data);
-  }, []);
+  const dispach = useDispatch();
+
+  const { data: files, loading } = useSelector(
+    (state: RootState) => state.files.allFiles,
+  );
 
   useEffect(() => {
-    getFiles();
-  }, [getFiles]);
+    dispach(refreshFiles());
+  }, [dispach]);
 
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <Container isBarHidden={isBarHidden}>
-      <h4>File tree</h4>
+      <h4>{t('file-tree')}</h4>
       <Button
         id="toggle-sidebar"
         variant="text"

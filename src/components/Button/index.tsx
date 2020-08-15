@@ -9,7 +9,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     | 'secondary'
     | 'text'
     | 'background'
-    | 'success';
+    | 'success'
+    | 'error';
   width?: string;
   height?: string;
 }
@@ -22,7 +23,8 @@ interface StylesProps {
     | 'secondary'
     | 'text'
     | 'background'
-    | 'success';
+    | 'success'
+    | 'error';
   width?: string;
   height?: string;
 }

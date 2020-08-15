@@ -4,6 +4,9 @@ import {
   AiOutlineFolderOpen,
   AiOutlineFile,
 } from 'react-icons/all';
+import { useDispatch } from 'react-redux';
+
+import { setFile } from '../../../redux/files/actions';
 
 import { Leaf } from './styles';
 
@@ -25,9 +28,17 @@ interface FileContainerProps {
 }
 
 const FileLeaf: React.FC<FileLeafData> = ({ item, level }) => {
-  const [isShowingChildren, setIsShowingChildren] = useState(false);
+  const [isShowingChildren, setIsShowingChildren] = useState(true);
 
-  const setCurrentFile = useCallback((id: number) => id, []);
+  const dispach = useDispatch();
+
+  const setCurrentFile = useCallback(
+    (id: number) => {
+      console.log(`disp. ${id}`);
+      dispach(setFile(id));
+    },
+    [dispach],
+  );
 
   const handleClick = useCallback(
     () =>
